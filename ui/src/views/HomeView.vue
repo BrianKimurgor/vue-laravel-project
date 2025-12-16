@@ -6,6 +6,7 @@ import InfluenceSection from '@/components/InfluenceSection.vue'
 import CTASection from '@/components/CTASection.vue'
 import FormSection from '@/components/FormSection.vue'
 import FooterSection from '@/components/footerSection.vue'
+import FormModal from '@/components/FormModal.vue'
 </script>
 
 <template>
@@ -17,6 +18,7 @@ import FooterSection from '@/components/footerSection.vue'
     <CTASection />
     <FormSection />
     <FooterSection />
+    <FormModal />
   </main>
 </template>
 

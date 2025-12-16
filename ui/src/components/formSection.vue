@@ -1,69 +1,41 @@
 <template>
-  <section class="bg-gray-800 py-16 px-4">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
-      <!-- Left side - Image placeholder -->
-      <div class="hidden md:block md:w-1/2">
-        <div class="bg-gray-700 rounded-lg h-80 flex items-center justify-center">
-          <span class="text-gray-500 text-lg">Image Placeholder</span>
-        </div>
-      </div>
+  <section class="relative w-full min-h-150 bg-white overflow-hidden flex items-center">
+    <!-- Feather Image (Bottom Left) -->
+    <img src="/feather.png" alt="Feather" class="absolute -bottom-32 -left-32 w-2/3 md:w-1/2 max-w-[700px] z-0 pointer-events-none" />
 
-      <!-- Right side - Form -->
-      <div class="w-full md:w-1/2 bg-white rounded-lg p-8 shadow-lg">
-        <h3 class="text-2xl font-semibold text-blue-900 mb-6">
-          REGISTER TO LEARN<br />MORE
-        </h3>
+    <!-- Half Face Image (Left) with Gradient Overlay on Mobile -->
+    <div class="absolute left-43 -top-30 h-[200%] w-full md:hidden z-0 pointer-events-none">
+      <img src="/hafface.png" alt="Face" class="w-full h-full object-contain object-left-top" />
+      <!-- White Gradient Overlay (Mobile only) -->
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-white pointer-events-none"></div>
+    </div>
 
-        <form class="space-y-4">
-          <!-- Last Name -->
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-            <input
-              type="text"
-              placeholder="Last Name"
-              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-900 focus:border-transparent outline-none"
-            />
-          </div>
+    <!-- Half Face Image (Right) on Desktop -->
+    <div class="hidden md:block absolute right-0 -top-90 h-[160%] w-1/2 z-0 pointer-events-none">
+      <img src="/hafface.png" alt="Face" class="w-full h-full object-contain object-right-top" />
+    </div>
 
-          <!-- Email -->
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input
-              type="email"
-              placeholder="user@email.com"
-              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-900 focus:border-transparent outline-none"
-            />
-          </div>
+    <!-- Content -->
+    <div class="relative z-10 max-w-screen-xl mx-auto px-6 md:px-12 flex flex-col justify-center h-full text-left md:ml-20">
+      <div class="max-w-lg">
+        <h1 class="text-4xl md:text-6xl font-semibold text-blue-900 leading-tight mb-4">
+          COLLAGEN IS <br />
+          THE FOUNTAIN <br />
+          OF YOUTH
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 tracking-widest uppercase">WHAT'S YOUR INFLUENCE?</p>
 
-          <!-- Checkbox -->
-          <div class="flex items-center gap-2 py-2">
-            <input
-              type="checkbox"
-              id="agreement"
-              class="w-4 h-4 rounded border-gray-300 cursor-pointer accent-blue-900"
-            />
-            <label for="agreement" class="text-sm text-gray-600 cursor-pointer">
-              I read the Agreement
-            </label>
-          </div>
-
-          <!-- Register Button -->
-          <button
-            type="submit"
-            class="w-full bg-blue-900 text-white py-3 rounded-md font-semibold hover:bg-blue-800 transition-colors mt-6"
-          >
-            Register Now
-          </button>
-        </form>
+        <button @click="formModal.openModal" class="flex items-center justify-center bg-[#456276] border border-gray-200 rounded-md shadow-lg pr-8 pl-6 py-2 hover:shadow-xl transition-shadow duration-300 group w-full md:w-auto">
+          <img src="/ben.jpg" alt="Ben's avatar" class="w-10 h-10 rounded-full mr-3 object-cover" />
+          <span class="text-white font-bold group-hover:text-gray-100 transition-colors">Connect with Ben</span>
+        </button>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-// Form Section component
-</script>
+import { useFormModalStore } from '@/stores/formModal'
 
-<style scoped>
-/* Component styles are handled by Tailwind CSS */
-</style>
+const formModal = useFormModalStore()
+</script>

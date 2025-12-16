@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-[#456276] text-white py-8 px-4">
     <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
+      <div class="flex flex-col md:flex-row items-center justify-around gap-6 text-sm">
         <!-- Copyright -->
         <div>
           <p>Copyright © 2025 - <span class="font-semibold">LOGO</span></p>
