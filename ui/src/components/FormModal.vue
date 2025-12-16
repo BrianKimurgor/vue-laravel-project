@@ -37,3 +37,12 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useFormModalStore } from '@/stores/formModal'
+import { useRegistrationForm } from '@/composables/useRegistrationForm'
+import RegistrationForm from './RegistrationForm.vue'
+
+const formModal = useFormModalStore()
+const { formData, isSubmitting, submitMessage, submitError, handleSubmit } = useRegistrationForm()
+</script>

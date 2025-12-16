@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRegistrationFormComponent, type RegistrationFormProps, type RegistrationFormEmits } from '@/composables/useRegistrationFormComponent'
 
-defineProps<RegistrationFormProps>()
+const props = defineProps<RegistrationFormProps>()
 
 defineEmits<RegistrationFormEmits>()
 
@@ -75,10 +75,10 @@ const { handleSubmit } = useRegistrationFormComponent()
     <!-- Register Button -->
     <button
       type="submit"
-      :disabled="isSubmitting"
+      :disabled="props.isSubmitting"
       class="w-full bg-blue-900 text-white py-3 rounded-md font-semibold hover:bg-blue-800 transition-colors mt-8 disabled:opacity-50 disabled:cursor-not-allowed"
     >
-      {{ isSubmitting ? 'Registering...' : 'Register Now' }}
+      {{ props.isSubmitting ? 'Registering...' : 'Register Now' }}
     </button>
 
     <!-- Error Message -->

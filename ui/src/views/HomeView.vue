@@ -4,7 +4,7 @@ import HeroSection from '@/components/HeroSection.vue'
 import BodyOne from '@/components/BodyOne.vue'
 import InfluenceSection from '@/components/InfluenceSection.vue'
 import CTASection from '@/components/CTASection.vue'
-import FormSection from '@/components/FormSection.vue'
+import FormSection from '@/components/formSection.vue'
 import FooterSection from '@/components/footerSection.vue'
 import FormModal from '@/components/FormModal.vue'
 </script>
