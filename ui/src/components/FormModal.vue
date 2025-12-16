@@ -24,118 +24,16 @@
           </button>
         </div>
 
-        <!-- Form -->
-        <form @submit.prevent="handleSubmit" class="space-y-6">
-          <!-- First Name -->
-          <div>
-            <input
-              v-model="formData.firstName"
-              type="text"
-              placeholder="First Name"
-              class="w-full px-0 py-2 border-b border-gray-300 bg-transparent focus:outline-none focus:border-blue-900 transition text-sm"
-            />
-          </div>
-
-          <!-- Last Name -->
-          <div>
-            <input
-              v-model="formData.lastName"
-              type="text"
-              placeholder="Last Name"
-              class="w-full px-0 py-2 border-b border-gray-300 bg-transparent focus:outline-none focus:border-blue-900 transition text-sm"
-            />
-          </div>
-
-          <!-- Phone -->
-          <div>
-            <input
-              v-model="formData.phone"
-              type="tel"
-              placeholder="Best Phone Number"
-              class="w-full px-0 py-2 border-b border-gray-300 bg-transparent focus:outline-none focus:border-blue-900 transition text-sm"
-            />
-          </div>
-
-          <!-- Email -->
-          <div>
-            <input
-              v-model="formData.email"
-              type="email"
-              placeholder="Email"
-              class="w-full px-0 py-2 border-b border-gray-300 bg-transparent focus:outline-none focus:border-blue-900 transition text-sm"
-              required
-            />
-          </div>
-
-          <!-- Checkbox -->
-          <div class="flex items-center gap-3 py-4">
-            <input
-              v-model="formData.agreeToTerms"
-              type="checkbox"
-              id="agreement"
-              class="w-4 h-4 rounded border-gray-300 cursor-pointer accent-blue-900"
-            />
-            <label for="agreement" class="text-sm text-gray-600 cursor-pointer">
-              I'm not a robot
-            </label>
-            <svg class="w-5 h-5 text-blue-900 ml-auto" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-            </svg>
-          </div>
-
-          <!-- Register Button -->
-          <button
-            type="submit"
-            class="w-full bg-blue-900 text-white py-3 rounded-md font-semibold hover:bg-blue-800 transition-colors mt-8"
-          >
-            Register Now
-          </button>
-        </form>
+        <!-- Registration Form Component -->
+        <RegistrationForm
+          :form-data="formData"
+          :is-submitting="isSubmitting"
+          :submit-message="submitMessage"
+          :submit-error="submitError"
+          @update:form-data="formData = $event"
+          @submit="handleSubmit"
+        />
       </div>
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-import { useFormModalStore } from '@/stores/formModal'
-
-const formModal = useFormModalStore()
-
-const formData = ref({
-  firstName: '',
-  lastName: '',
-  phone: '',
-  email: '',
-  agreeToTerms: false
-})
-
-const handleSubmit = () => {
-  console.log('Form submitted:', formData.value)
-  formModal.closeModal()
-  formData.value = {
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email: '',
-    agreeToTerms: false
-  }
-}
-</script>
-
-<style scoped>
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.3s ease-out;
-}
-</style>
